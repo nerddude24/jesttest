@@ -26,13 +26,25 @@ describe("Calculator", () => {
 	test("subtraction", () => expect(funcs.calculator.sub(5, 1)).toEqual(4));
 	test("multiplication", () => expect(funcs.calculator.mul(2, 4)).toEqual(8));
 	test("division", () => expect(funcs.calculator.div(10, 2)).toEqual(5));
+	test("division by zero error", () =>
+		expect(() => funcs.calculator.div(10, 0)).toThrow());
 
 	test("multiple input addition", () =>
 		expect(funcs.calculator.add(1, 2, 3)).toEqual(6));
-	test("multiple input substraction", () =>
+	test("multiple input subtraction", () =>
 		expect(funcs.calculator.sub(10, 2, 8)).toEqual(0));
 	test("multiple input multiplication", () =>
 		expect(funcs.calculator.mul(10, 2, 5)).toEqual(100));
 	test("multiple input division", () =>
 		expect(funcs.calculator.div(10, 2, 5)).toEqual(1));
+
+	test("mixed 1", () =>
+		expect(funcs.calculator.add(funcs.calculator.mul(2, 5), 5)).toEqual(15));
+	test("mixed 2", () =>
+		expect(
+			funcs.calculator.div(
+				funcs.calculator.add(funcs.calculator.mul(2, 5), 5),
+				funcs.calculator.sub(10, 5)
+			)
+		).toEqual(3));
 });

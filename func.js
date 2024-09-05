@@ -16,7 +16,10 @@ const calculator = {
 	add: (...nums) => nums.reduce((prev, cur) => prev + cur, 0),
 	sub: (...nums) => nums.slice(1).reduce((prev, cur) => prev - cur, nums[0]),
 	mul: (...nums) => nums.reduce((prev, cur) => prev * cur, 1),
-	div: (...nums) => nums.slice(1).reduce((prev, cur) => prev / cur, nums[0]),
+	div: (...nums) => {
+		if (nums.includes(0)) throw new Error("Can't divide by zero!");
+		else return nums.slice(1).reduce((prev, cur) => prev / cur, nums[0]);
+	},
 };
 
 module.exports = { capitalize, reverseString, calculator };
