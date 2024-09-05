@@ -22,4 +22,42 @@ const calculator = {
 	},
 };
 
-module.exports = { capitalize, reverseString, calculator };
+function isLetter(charCode) {
+	const ALPHABET_LENGTH = 26;
+
+	// UTF-16 CODE CONSTANTS
+	// MORE INFO: https://www.fileformat.info/info/charset/UTF-16/list.htm
+	const CAPITAL_START = 65;
+	const CAPITAL_END = CAPITAL_START + ALPHABET_LENGTH - 1;
+	const SMALL_START = 97;
+	const SMALL_END = SMALL_START + ALPHABET_LENGTH - 1;
+
+	return (
+		(charCode >= SMALL_START && charCode <= SMALL_END) ||
+		(charCode >= CAPITAL_START && charCode <= CAPITAL_END)
+	);
+}
+
+function caesarCipher(str, shift) {
+	const ALPHABET_LENGTH = 26;
+
+	if (shift >= ALPHABET_LENGTH) throw new Error("Can't shift by more than 25!");
+
+	let cipheredString = "";
+	for (let i = 0; i < str.length; i++) {
+		let charCode = str.charCodeAt(i);
+
+		if (isLetter(charCode)) {
+			charCode += shift;
+
+			// if shifted char code is over Z or z, loop back to A or a
+			if (!isLetter(charCode)) charCode -= ALPHABET_LENGTH;
+		}
+
+		cipheredString += String.fromCharCode(charCode);
+	}
+
+	return cipheredString;
+}
+
+module.exports = { capitalize, reverseString, calculator, caesarCipher };

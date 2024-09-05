@@ -48,3 +48,12 @@ describe("Calculator", () => {
 			)
 		).toEqual(3));
 });
+
+describe("Caesar's Cipher", () => {
+	test("Shift by three", () =>
+		expect(funcs.caesarCipher("xyz", 3)).toBe("abc"));
+	test("Shift by three with capitals", () =>
+		expect(funcs.caesarCipher("HeLLo", 3)).toBe("KhOOr"));
+	test("Shift by three with punctuation", () =>
+		expect(funcs.caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!"));
+});
