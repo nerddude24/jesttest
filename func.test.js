@@ -20,3 +20,10 @@ describe("String Reversion", () => {
 	test("non string input throws an error", () =>
 		expect(() => funcs.reverseString(0)).toThrow());
 });
+
+describe("Calculator", () => {
+	test("addition", () => expect(funcs.calculator.add(1, 2)).toEqual(3));
+	test("subtraction", () => expect(funcs.calculator.sub(5, 1)).toEqual(4));
+	test("multiplication", () => expect(funcs.calculator.mul(2, 4)).toEqual(8));
+	test("division", () => expect(funcs.calculator.div(10, 2)).toEqual(5));
+});
