@@ -57,3 +57,13 @@ describe("Caesar's Cipher", () => {
 	test("Shift by three with punctuation", () =>
 		expect(funcs.caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!"));
 });
+
+describe("Array Analyzer", () => {
+	test("test", () =>
+		expect(funcs.analyzeArray([1, 8, 3, 4, 2, 6])).toEqual({
+			average: 4,
+			min: 1,
+			max: 8,
+			length: 6,
+		}));
+});

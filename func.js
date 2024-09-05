@@ -60,4 +60,19 @@ function caesarCipher(str, shift) {
 	return cipheredString;
 }
 
-module.exports = { capitalize, reverseString, calculator, caesarCipher };
+function analyzeArray(arr) {
+	return {
+		average: arr.reduce((prev, cur) => prev + cur / arr.length, 0),
+		min: arr.reduce((prev, cur) => Math.min(prev, cur), arr[0]),
+		max: arr.reduce((prev, cur) => Math.max(prev, cur), arr[0]),
+		length: arr.length,
+	};
+}
+
+module.exports = {
+	capitalize,
+	reverseString,
+	calculator,
+	caesarCipher,
+	analyzeArray,
+};
