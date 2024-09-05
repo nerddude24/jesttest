@@ -26,4 +26,13 @@ describe("Calculator", () => {
 	test("subtraction", () => expect(funcs.calculator.sub(5, 1)).toEqual(4));
 	test("multiplication", () => expect(funcs.calculator.mul(2, 4)).toEqual(8));
 	test("division", () => expect(funcs.calculator.div(10, 2)).toEqual(5));
+
+	test("multiple input addition", () =>
+		expect(funcs.calculator.add(1, 2, 3)).toEqual(6));
+	test("multiple input substraction", () =>
+		expect(funcs.calculator.sub(10, 2, 8)).toEqual(0));
+	test("multiple input multiplication", () =>
+		expect(funcs.calculator.mul(10, 2, 5)).toEqual(100));
+	test("multiple input division", () =>
+		expect(funcs.calculator.div(10, 2, 5)).toEqual(1));
 });

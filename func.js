@@ -13,10 +13,10 @@ function reverseString(str) {
 }
 
 const calculator = {
-	add: (a, b) => a + b,
-	sub: (a, b) => a - b,
-	mul: (a, b) => a * b,
-	div: (a, b) => a / b,
+	add: (...nums) => nums.reduce((prev, cur) => prev + cur, 0),
+	sub: (...nums) => nums.slice(1).reduce((prev, cur) => prev - cur, nums[0]),
+	mul: (...nums) => nums.reduce((prev, cur) => prev * cur, 1),
+	div: (...nums) => nums.slice(1).reduce((prev, cur) => prev / cur, nums[0]),
 };
 
 module.exports = { capitalize, reverseString, calculator };
